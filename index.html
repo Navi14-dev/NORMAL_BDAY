@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Chinnu!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ff3e6c;
+            --secondary: #ffc2d1;
+            --accent: #ff85a1;
+            --light: #fff9fb;
+            --dark: #2d3436;
+            --gold: #ffd700;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Elegant header with gradient */
+        .header {
+            background: linear-gradient(135deg, var(--primary), #ff8fb8);
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 5rem;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: fadeInDown 1.5s ease;
+        }
+        
+        .header p {
+            color: white;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            font-weight: 300;
+            animation: fadeInUp 1.5s ease;
+        }
+        
+        /* Navigation with soft hover effects */
+        .navigation {
+            background-color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            animation: fadeIn 1s ease;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .nav-link {
+            display: inline-block;
+            padding: 10px 25px;
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid transparent;
+        }
+        
+        .nav-link:before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link:hover:before {
+            width: 70%;
+        }
+        
+        .active {
+            background-color: var(--secondary);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        /* Content container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Improved Memory gallery with better alignment */
+        .gallery-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.2rem;
+            color: var(--primary);
+            position: relative;
+            font-weight: 600;
+        }
+        
+        .gallery-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        /* Improved gallery layout */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            height: 300px;
+            width: 350px;
+            flex-grow: 0;
+            flex-shrink: 0;
+            margin-bottom: 15px;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height:130%;
+           
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: white;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.4s ease;
+        }
+        
+        .gallery-item:hover .caption {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Redesigned cake section with better alignment */
+        .celebration {
+            background-color: white;
+            border-radius: 15px;
+            padding: 70px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 60px;
+        }
+        
+        .cake-container {
+            position: relative;
+            margin: 0 auto;
+            width: 300px;
+            height: 350px; /* Increased height for better alignment */
+        }
+        
+        .cake {
+            position: relative;
+            width: 250px;
+            height: 200px;
+            margin: 0 auto;
+            margin-bottom: 60px; /* Increased spacing for message */
+        }
+        
+        .cake-plate {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 270px;
+            height: 20px;
+            background: linear-gradient(to right, #e0e0e0, #f5f5f5, #e0e0e0);
+            border-radius: 50%;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cake-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 80px;
+            background: linear-gradient(to right, var(--secondary), var(--accent));
+            border-radius: 10px 10px 5px 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cake-middle {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 170px;
+            height: 70px;
+            background: linear-gradient(to right, #fff, var(--secondary));
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .cake-top {
+            position: absolute;
+            bottom: 150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 50px;
+            background: linear-gradient(to right, var(--accent), var(--primary));
+            border-radius: 5px 5px 0 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Cake decorations */
+        .frosting {
+            position: absolute;
+            width: 20px;
+            height: 15px;
+            background: white;
+            border-radius: 50%;
+        }
+        
+        .candle {
+            position: absolute;
+            width: 8px;
+            height: 35px;
+            background: linear-gradient(to top, var(--gold), #ffe066);
+            border-radius: 5px;
+            z-index: 5;
+        }
+        
+        .candle1 { bottom: 200px; left: calc(50% - 40px); }
+        .candle2 { bottom: 200px; left: calc(50% - 20px); }
+        .candle3 { bottom: 200px; left: 50%; height: 40px; }
+        .candle4 { bottom: 200px; left: calc(50% + 20px); }
+        .candle5 { bottom: 200px; left: calc(50% + 40px); }
+        
+        .flame {
+            position: absolute;
+            width: 10px;
+            height: 18px;
+            background: radial-gradient(ellipse at center, #ffdd00 0%, #ff9900 70%, #ff5500 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flicker 0.6s infinite alternate;
+            transform-origin: center bottom;
+            filter: blur(0.5px);
+            z-index: 6;
+            cursor: pointer;
+        }
+        
+        .flame1 { bottom: 235px; left: calc(50% - 40px); }
+        .flame2 { bottom: 235px; left: calc(50% - 20px); }
+        .flame3 { bottom: 240px; left: 50%; }
+        .flame4 { bottom: 235px; left: calc(50% + 20px); }
+        .flame5 { bottom: 235px; left: calc(50% + 40px); }
+        
+        /* Improved Celebration message */
+        .message {
+            margin-top: 90px; /* Increased spacing from cake */
+            padding: 15px;
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: red;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.8s ease;
+            text-shadow: 0px 0px 3px rgba(255, 255, 255, 0.5); /* Added glow for better visibility */
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 10;
+        }
+        
+        .message.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+        
+        /* Special wishes section */
+        .wishes {
+            position: relative;
+            background: linear-gradient(135deg, #fff9fb, #ffebf3);
+            padding: 50px 30px;
+            border-radius: 15px;
+            margin-bottom: 60px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .wishes h2 {
+            margin-bottom: 30px;
+            color: var(--primary);
+            font-size: 2.2rem;
+            position: relative;
+            display: inline-block;
+            font-weight: 600;
+        }
+        
+        .wishes h2:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .wishes p {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--dark);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+        
+        .footer p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        .heart {
+            display: inline-block;
+            color: white;
+            animation: pulse 1s infinite;
+        }
+        
+        /* Animation for confetti */
+        .confetti-container {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 999;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0;
+            animation: confetti-fall 5s ease-out forwards;
+        }
+        
+        /* Fireworks display */
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 2px;
+            opacity: 0;
+            pointer-events: none;
+            animation: firework-explode 2s forwards cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+        
+        /* Balloon Animation */
+        .balloon-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .balloon {
+            position: absolute;
+            width: 30px;
+            height: 40px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            bottom: -100px;
+            opacity: 0.7;
+            animation: balloon-rise 15s infinite linear;
+        }
+        
+        .balloon:before {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 12px;
+            background-color: var(--accent);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 0 0 3px 3px;
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 3.5rem;
+            }
+            
+            .gallery-item {
+                width: 100%;
+                max-width: 300px;
+                height: 250px;
+            }
+            
+            .cake-container {
+                transform: scale(0.9);
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-link {
+                width: 80%;
+                text-align: center;
+                margin-bottom: 5px;
+            }
+            
+            .message {
+                font-size: 2rem;
+                padding: 10px;
+            }
+            
+            .wishes h2 {
+                font-size: 1.8rem;
+            }
+            
+            .wishes p {
+                font-size: 1rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+        
+        @keyframes flicker {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(0.8, 1.1);
+                opacity: 0.9;
+            }
+        }
+        
+        @keyframes confetti-fall {
+            0% {
+                opacity: 1;
+                transform: translateY(-20vh) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        
+        @keyframes firework-explode {
+            0% {
+                opacity: 1;
+                transform: scale(0.1);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(2);
+            }
+        }
+        
+        /* Balloon rise animation */
+        @keyframes balloon-rise {
+            0% {
+                transform: translateY(0) translateX(0) scale(0.8);
+                opacity: 0.7;
+                bottom: -100px;
+            }
+            50% {
+                opacity: 0.9;
+            }
+            75% {
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-120vh) translateX(100px) scale(1.2);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Balloon background animation -->
+    <div class="balloon-container" id="balloon-container"></div>
+    
+    <div class="header">
+        <h1>Happy Birthday, Chinnu!</h1>
+        <p>Celebrating the most amazing sister on her special day</p>
+    </div>
+    
+    <nav class="navigation">
+        <div class="nav-container">
+            <a href="#home" class="nav-link active">Home</a>
+            <a href="memories.html" class="nav-link">Memories</a>
+            <a href="bro_wishes.html" class="nav-link">Brother's Wishes</a>
+            <a href="surprises.html" class="nav-link">Surprises</a>
+            <a href="specialmessages.html" class="nav-link">Special Messages</a>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <section id="gallery">
+            <h2 class="gallery-title">Our Precious Memories</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="close.jpg" alt="Sibling Memory">
+                    <div class="caption">
+                        <h3>College Days</h3>
+                        <p>Remember how was our first meeting and now how close we are?</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="firstpic.jpg" alt="Sibling Memory">
+                    <div class="caption">
+                        <h3>First Best Picture</h3>
+                        <p>Our amazing First Picture together</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="firstbrosis.jpg" alt="Sibling Memory">
+                    <div class="caption">
+                        <h3>First Bro Sis Calling each other</h3>
+                        <p>I called you first and then you called me as bro next . Today there is a great bond b/w us.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="rakhi.jpg" alt="Sibling Memory">
+                    <div class="caption">
+                        <h3>First Rakhi day</h3>
+                        <p>My first non-blood sister who tied Rakhi to me.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="lybday.jpg" alt="Sibling Memory">
+                    <div class="caption">
+                        <h3>Birthday Last Year</h3>
+                        <p>Making every birthday memorable</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="silly.jpg" alt="Sibling Memory">
+                    <div class="caption">
+                        <h3>Sibling Moments</h3>
+                        <p>The silly times we share</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="celebration" class="celebration">
+            <div class="cake-container">
+                <div class="cake">
+                    <div class="cake-plate"></div>
+                    <div class="cake-bottom"></div>
+                    <div class="cake-middle"></div>
+                    <div class="cake-top"></div>
+                    
+                    <!-- Candles -->
+                    <div class="candle candle1"></div>
+                    <div class="candle candle2"></div>
+                    <div class="candle candle3"></div>
+                    <div class="candle candle4"></div>
+                    <div class="candle candle5"></div>
+                    
+                    <!-- Flames -->
+                    <div class="flame flame1" data-index="1"></div>
+                    <div class="flame flame2" data-index="2"></div>
+                    <div class="flame flame3" data-index="3"></div>
+                    <div class="flame flame4" data-index="4"></div>
+                    <div class="flame flame5" data-index="5"></div>
+                </div>
+                
+                <div class="message" id="birthday-message">✨ Happy birthday my dear Chinnu! May all your dreams come true! ✨</div>
+            </div>
+        </section>
+        
+        <section id="wishes" class="wishes">
+            <h2>From Your Brother, With Love</h2>
+            <p>Dear Chinnu, on your special day, I want you to know how much joy and happiness you bring to my life. Growing up with you has been one of the greatest blessings. Your smile, your kindness, and your spirit brighten every day.</p>
+            <p>You've grown into such an amazing person, and I couldn't be prouder to call you my sister. No matter where life takes us, know that I'll always be there for you, just as you've always been there for me.</p>
+            <p>May this birthday bring you all the love, success, and happiness you deserve. Here's to celebrating many more wonderful years together!</p>
+            <p>Love you always,<br>Your Brother</p>
+        </section>
+    </div>
+    
+    <footer class="footer">
+        <p>Made with <span class="heart">❤</span> for my amazing sister Chinnu | Birthday 2025</p>
+    </footer>
+    
+    <div class="confetti-container" id="confetti-container"></div>
+    
+    <script>
+        // Navigation active state
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(item => item.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+        
+        // Track candles blown
+        let candlesBlown = 0;
+        const totalCandles = 5;
+        
+        // Blow out candle and celebration effects
+        document.querySelectorAll('.flame').forEach(flame => {
+            flame.addEventListener('click', function() {
+                this.style.display = 'none';
+                candlesBlown++;
+                
+                // Create some sparkles for each candle blown
+                createSparkles(this.getBoundingClientRect());
+                
+                // When all candles are blown
+                if (candlesBlown === totalCandles) {
+                    // Make message visible and add additional styling for clarity
+                    const birthdayMessage = document.getElementById('birthday-message');
+                    birthdayMessage.classList.add('visible');
+                    birthdayMessage.style.backgroundColor = 'rgba(255, 255, 255, 0.85)';
+                    birthdayMessage.style.borderRadius = '10px';
+                    birthdayMessage.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.1)';
+                    
+                    // Create confetti celebration
+                    createMassiveConfetti();
+                    
+                    // Create fireworks
+                    for (let i = 0; i < 10; i++) {
+                        setTimeout(() => {
+                            createFirework();
+                        }, i * 300);
+                    }
+                }
+            });
+        });
+        
+        // Create confetti effect
+        function createConfetti(x, y) {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#ff6b6b', '#f06595', '#cc5de8', '#5c7cfa', '#339af0', '#51cf66', '#fcc419'];
+            
+            for (let i = 0; i < 30; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                
+                // Random styles
+                const size = 5 + Math.random() * 10;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                confetti.style.left = `${x + (Math.random() * 200 - 100)}px`;
+                confetti.style.top = `${y}px`;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.background = color;
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.animationDelay = `${Math.random() * 2}s`;
+                confetti.style.animationDuration = `${3 + Math.random() * 4}s`;
+                
+                container.appendChild(confetti);
+                
+                // Clean up confetti
+                setTimeout(() => {
+                    confetti.remove();
+                }, 7000);
+            }
+        }
+        
+        // Create sparkles (smaller confetti) for candle blowing
+        function createSparkles(rect) {
+            const x = rect.x + rect.width / 2;
+            const y = rect.y;
+            const container = document.getElementById('confetti-container');
+            const colors = ['#ffdd00', '#ffa41b', '#ff5e5e'];
+            
+            for (let i = 0; i < 15; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.classList.add('confetti');
+                
+                // Smaller, star-like confetti
+                const size = 3 + Math.random() * 5;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                sparkle.style.left = `${x}px`;
+                sparkle.style.top = `${y}px`;
+                sparkle.style.width = `${size}px`;
+                sparkle.style.height = `${size}px`;
+                sparkle.style.background = color;
+                sparkle.style.borderRadius = '50%';
+                sparkle.style.boxShadow = `0 0 ${size}px ${color}`;
+                sparkle.style.animationDuration = `${1 + Math.random() * 2}s`;
+                
+                container.appendChild(sparkle);
+                
+                setTimeout(() => {
+                    sparkle.remove();
+                }, 3000);
+            }
+        }
+        
+        // Create firework effect
+        function createFirework() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#ff6b6b', '#f06595', '#cc5de8', '#5c7cfa', '#339af0', '#51cf66', '#fcc419'];
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            
+            // Random position
+            const x = Math.random() * window.innerWidth;
+            const y = 100 + Math.random() * (window.innerHeight / 2);
+            
+            // Create center of firework
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            firework.style.left = `${x}px`;
+            firework.style.top = `${y}px`;
+            firework.style.boxShadow = `0 0 10px 2px ${color}`;
+            
+            container.appendChild(firework);
+            
+            // Create particles
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('firework');
+                
+                const angle = Math.random() * Math.PI * 2;
+                const distance = 50 + Math.random() * 50;
+                const pX = x + Math.cos(angle) * distance;
+                const pY = y + Math.sin(angle) * distance;
+                
+                particle.style.left = `${pX}px`;
+                particle.style.top = `${pY}px`;
+                particle.style.boxShadow = `0 0 10px 2px ${color}`;
+                particle.style.animationDelay = `${Math.random() * 0.2}s`;
+                
+                container.appendChild(particle);
+                
+                setTimeout(() => {
+                    particle.remove();
+                }, 2000);
+            }
+            
+            setTimeout(() => {
+                firework.remove();
+            }, 2000);
+        }
+        
+        // Create massive confetti celebration
+        function createMassiveConfetti() {
+            const windowWidth = window.innerWidth;
+            
+            // Multiple bursts of confetti across the screen
+            for (let i = 0; i < 5; i++) {
+                const x = windowWidth * (i + 1) / 6;
+                
+                setTimeout(() => {
+                    createConfetti(x, 100);
+                }, i * 300);
+                setTimeout(() => {
+                    createConfetti(x, 100);
+                }, i * 300);
+            }
+        }
+        
+        // Create balloons floating in the background
+        function createBalloons() {
+            const container = document.getElementById('balloon-container');
+            const colors = ['#ff6b6b', '#f06595', '#cc5de8', '#5c7cfa', '#339af0', '#51cf66', '#fcc419'];
+            const windowWidth = window.innerWidth;
+            
+            // Create initial set of balloons
+            for (let i = 0; i < 15; i++) {
+                createBalloon(container, colors, windowWidth);
+            }
+            
+            // Continue creating balloons periodically
+            setInterval(() => {
+                createBalloon(container, colors, windowWidth);
+            }, 3000);
+        }
+        
+        function createBalloon(container, colors, windowWidth) {
+            const balloon = document.createElement('div');
+            balloon.classList.add('balloon');
+            
+            // Random properties
+            const size = 15 + Math.random() * 30;
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            const left = Math.random() * windowWidth;
+            const animationDuration = 15 + Math.random() * 10;
+            const delay = Math.random() * 5;
+            
+            balloon.style.width = `${size}px`;
+            balloon.style.height = `${size * 1.2}px`;
+            balloon.style.left = `${left}px`;
+            balloon.style.background = color;
+            balloon.style.animationDuration = `${animationDuration}s`;
+            balloon.style.animationDelay = `${delay}s`;
+            
+            container.appendChild(balloon);
+            
+            // Clean up balloons after animation
+            setTimeout(() => {
+                balloon.remove();
+            }, (animationDuration + delay) * 1000);
+        }
+        
+        // Create scrolling effect for navigation
+        // document.querySelectorAll('.nav-link').forEach(link => {
+        //     link.addEventListener('click', function(e) {
+        //         e.preventDefault();
+                
+        //         const targetId = this.getAttribute('href').substring(1);
+        //         const targetElement = document.getElementById(targetId);
+                
+        //         if (targetElement) {
+        //             window.scrollTo({
+        //                 top: targetElement.offsetTop - 70,
+        //                 behavior: 'smooth'
+        //             });
+        //         }
+        //     });
+        // });
+        
+        // Initialize on load
+        window.addEventListener('load', function() {
+            createBalloons();
+            
+            // Add a surprise button under the navigation
+            const navContainer = document.querySelector('.nav-container');
+            const surpriseButton = document.createElement('button');
+            surpriseButton.classList.add('nav-link');
+            surpriseButton.textContent = '🎁 Surprise!';
+            surpriseButton.style.background = 'linear-gradient(135deg, var(--primary), var(--accent))';
+            surpriseButton.style.color = 'white';
+            surpriseButton.style.border = 'none';
+            surpriseButton.style.cursor = 'pointer';
+            
+            surpriseButton.addEventListener('click', function() {
+                // Create fireworks and confetti
+                createMassiveConfetti();
+                
+                for (let i = 0; i < 8; i++) {
+                    setTimeout(() => {
+                        createFirework();
+                    }, i * 300);
+                }
+                
+                // Add a special birthday message that appears and fades
+                const specialMessage = document.createElement('div');
+                specialMessage.style.position = 'fixed';
+                specialMessage.style.top = '50%';
+                specialMessage.style.left = '50%';
+                specialMessage.style.transform = 'translate(-50%, -50%)';
+                specialMessage.style.background = 'rgba(255, 255, 255, 0.9)';
+                specialMessage.style.padding = '30px';
+                specialMessage.style.borderRadius = '15px';
+                specialMessage.style.boxShadow = '0 10px 30px rgba(0, 0, 0, 0.2)';
+                specialMessage.style.zIndex = '1000';
+                specialMessage.style.textAlign = 'center';
+                specialMessage.style.opacity = '0';
+                specialMessage.style.transition = 'opacity 1s ease';
+                specialMessage.innerHTML = `
+                    <h2 style="color: var(--primary); font-family: 'Great Vibes', cursive; font-size: 3rem; margin-bottom: 15px;">Happy Birthday Chinnu!</h2>
+                    <p style="font-size: 1.2rem; margin-bottom: 20px;">You are the best sister anyone could ask for!</p>
+                    <p style="font-size: 1.1rem;">I've got a special surprise waiting for you today!</p>
+                    <button id="close-message" style="background: var(--primary); color: white; border: none; padding: 10px 20px; margin-top: 20px; border-radius: 30px; cursor: pointer;">Thank you!</button>
+                `;
+                
+                document.body.appendChild(specialMessage);
+                
+                setTimeout(() => {
+                    specialMessage.style.opacity = '1';
+                }, 100);
+                
+                document.getElementById('close-message').addEventListener('click', function() {
+                    specialMessage.style.opacity = '0';
+                    setTimeout(() => {
+                        specialMessage.remove();
+                    }, 1000);
+                });
+            });
+            
+            navContainer.appendChild(surpriseButton);
+        });
+        
+        // Smooth scroll to sections when page loads with hash
+        if (window.location.hash) {
+            const targetId = window.location.hash.substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }, 500);
+            }
+        }
+    </script>
+</body>
+</html>

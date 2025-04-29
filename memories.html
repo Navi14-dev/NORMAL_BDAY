@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Chinnu! My Sister by Heart</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Montserrat:wght@300;400;600;700&family=Pacifico&display=swap');
+
+        body {
+            background: #FEE7F8;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+            color: #333;
+        }
+
+        .background-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .shape {
+            position: absolute;
+            opacity: 0.4;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(5deg);
+            }
+        }
+
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: transparent;
+            top: -10px;
+            will-change: transform;
+        }
+
+        .heart-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+            overflow: hidden;
+            opacity: 0;
+            transition: opacity 1s;
+        }
+
+        .heart-container.show {
+            opacity: 1;
+        }
+
+        .floating-heart {
+            position: absolute;
+            bottom: -50px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            opacity: 0.8;
+            animation: floatUp 7s linear infinite;
+            filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.1));
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) rotate(0deg) scale(1);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.4;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+
+        .back-home-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.8);
+    color: #FF61D2;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    margin: 20px 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 20;
+}
+
+.back-home-button:hover {
+    background: #fff;
+    color: #FE9090;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.back-icon {
+    margin-right: 8px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.back-home-button:hover .back-icon {
+    transform: translateX(-5px);
+}
+
+
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .birthday-banner {
+            background: linear-gradient(135deg, #FF61D2 0%, #FE9090 100%);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(254, 97, 210, 0.3);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+            margin-bottom: 40px;
+            animation: bannerPulse 3s infinite alternate;
+        }
+
+        @keyframes bannerPulse {
+            0% {
+                box-shadow: 0 10px 30px rgba(254, 97, 210, 0.3);
+                transform: translateY(0);
+            }
+            100% {
+                box-shadow: 0 20px 40px rgba(254, 97, 210, 0.5);
+                transform: translateY(-5px);
+            }
+        }
+
+        h1 {
+            font-family: 'Pacifico', cursive;
+            font-size: 3.5rem;
+            color: #fff;
+            text-shadow: 3px 3px 0px rgba(0, 0, 0, 0.15);
+            margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        h1::before, h1::after {
+            content: '✨';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: #FFD700;
+            animation: sparkle 2s infinite;
+        }
+
+        h1::before {
+            left: -30px;
+            animation-delay: 0s;
+        }
+
+        h1::after {
+            right: -30px;
+            animation-delay: 1s;
+        }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0.3;
+                transform: translateY(-50%) scale(0.8);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-50%) scale(1.2);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+            font-weight: 300;
+        }
+
+        .birthday-button {
+            background: rgba(255, 255, 255, 0.8);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            color: #FF61D2;
+            font-weight: 600;
+            margin: 10px;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .birthday-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .birthday-button:hover::before {
+            left: 100%;
+        }
+
+        .birthday-button:hover {
+            background: #fff;
+            color: #FF4DB2;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .memory-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 70px auto;
+            padding-bottom: 50px;
+        }
+
+        .timeline-line {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: linear-gradient(to bottom, #FF61D2, #FE9090);
+            transform: translateX(-50%);
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(254, 97, 210, 0.5);
+        }
+
+        .memory-card {
+            position: relative;
+            width: 45%;
+            padding: 25px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            margin-bottom: 60px;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border-top: 5px solid #FF61D2;
+        }
+
+        .memory-card.visible {
+            opacity: 1;
+            transform: translateY(0) rotate(0deg);
+        }
+
+        .memory-card:nth-child(odd) {
+            margin-left: auto;
+            transform: translateY(50px) rotate(-2deg);
+        }
+
+        .memory-card:nth-child(even) {
+            margin-right: auto;
+            transform: translateY(50px) rotate(2deg);
+        }
+
+        .memory-card:nth-child(odd)::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: -15px;
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-right: 15px solid #fff;
+        }
+
+        .memory-card:nth-child(even)::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -15px;
+            width: 0;
+            height: 0;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+            border-left: 15px solid #fff;
+        }
+
+        .memory-card:nth-child(odd)::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: -50px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #FF61D2;
+            box-shadow: 0 0 0 5px rgba(255, 97, 210, 0.3),
+                        0 0 10px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+        }
+
+        .memory-card:nth-child(even)::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -50px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: #FF61D2;
+            box-shadow: 0 0 0 5px rgba(255, 97, 210, 0.3),
+                        0 0 10px rgba(0, 0, 0, 0.1);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 97, 210, 0.7);
+            }
+            
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 10px rgba(255, 97, 210, 0);
+            }
+            
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(255, 97, 210, 0);
+            }
+        }
+
+        .memory-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #FF61D2;
+            font-weight: 600;
+        }
+
+        .memory-date {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: #888;
+            margin-bottom: 15px;
+            display: inline-block;
+            padding: 5px 10px;
+            background: rgba(254, 97, 210, 0.1);
+            border-radius: 30px;
+        }
+
+        .memory-content {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .memory-image {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s ease;
+        }
+
+        .memory-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 97, 210, 0.3) 0%, rgba(254, 144, 144, 0.3) 100%);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .memory-image:hover::before {
+            opacity: 1;
+        }
+
+        .memory-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .memory-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .memory-image:hover img {
+            transform: scale(1.1);
+        }
+
+        .memory-quote {
+            font-style: italic;
+            color: #FF61D2;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            background: rgba(254, 97, 210, 0.05);
+            position: relative;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.3rem;
+            line-height: 1.4;
+            text-align: center;
+        }
+
+        .memory-quote::before {
+            content: '"';
+            font-size: 3rem;
+            position: absolute;
+            left: 5px;
+            top: -10px;
+            color: rgba(254, 97, 210, 0.2);
+            font-family: serif;
+        }
+
+        .memory-quote::after {
+            content: '"';
+            font-size: 3rem;
+            position: absolute;
+            right: 5px;
+            bottom: -35px;
+            color: rgba(254, 97, 210, 0.2);
+            font-family: serif;
+        }
+
+        .memory-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, #FF61D2 0%, #FE9090 100%);
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(254, 97, 210, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .memory-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+            z-index: -1;
+        }
+
+        .memory-button:hover::before {
+            left: 100%;
+        }
+
+        .memory-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(254, 97, 210, 0.4);
+        }
+
+        .birthday-footer {
+            text-align: center;
+            padding: 40px 0;
+            background: linear-gradient(135deg, rgba(255, 97, 210, 0.1) 0%, rgba(254, 144, 144, 0.1) 100%);
+            border-radius: 15px;
+            margin-top: 50px;
+        }
+
+        .footer-title {
+            font-family: 'Pacifico', cursive;
+            font-size: 2rem;
+            color: #FF61D2;
+            margin-bottom: 20px;
+        }
+
+        .footer-content {
+            font-size: 1.1rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+        }
+
+        .surprise-button {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #FF61D2 0%, #FE9090 100%);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(254, 97, 210, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .surprise-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .surprise-button:hover::before {
+            left: 100%;
+        }
+
+        .surprise-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(254, 97, 210, 0.4);
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .memory-timeline {
+                padding: 0 20px;
+            }
+            
+            .timeline-line {
+                left: 30px;
+            }
+            
+            .memory-card {
+                width: calc(100% - 70px);
+                margin-left: 70px !important;
+                margin-right: 0 !important;
+            }
+            
+            .memory-card:nth-child(odd)::before,
+            .memory-card:nth-child(even)::before {
+                left: -15px;
+                right: auto;
+                border-right: 15px solid #fff;
+                border-left: none;
+            }
+            
+            .memory-card:nth-child(odd)::after,
+            .memory-card:nth-child(even)::after {
+                left: -40px;
+                right: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-shapes">
+        <!-- Shapes will be added dynamically via JS -->
+    </div>
+    
+    <div class="confetti-container">
+        <!-- Confetti will be added dynamically via JS -->
+    </div>
+    
+    <div class="heart-container">
+        <!-- Hearts will be added dynamically via JS -->
+    </div>
+    
+
+
+
+
+
+
+    <!-- <div class="back-home-wrapper">
+        <a href="#" class="back-home-button">
+            <span class="back-icon">←</span> Back to Home
+        </a>
+    </div> -->
+
+
+
+
+
+
+    <div class="container">
+        
+        <header>
+            <div class="birthday-banner">
+                <h1>Happy Birthday Chinnu!</h1>
+                <p class="subtitle">To my sister not by blood, but by heart ♥</p>
+                <button class="birthday-button" id="launch-confetti">Celebrate With Me!</button>
+                <button class="birthday-button" id="show-hearts">Send Love ♥</button>
+            </div>
+            <a href="index.html" class="back-home-button">
+                <span class="back-icon">&#8592;</span> Back to Home
+            </a>
+        </header>
+        
+        <div class="memory-timeline">
+            <div class="timeline-line"></div>
+            
+            <div class="memory-card">
+                <h3 class="memory-title">First Day at Engineering College</h3>
+                <p class="memory-date">November 2022</p>
+                <div class="memory-image">
+                    <img src="giet.avif" alt="First meeting at college orientation">
+                </div>
+                <p class="memory-content">Remember how we met during orientation? You were the only one who offered to share your notes when I missed the first lecture. Little did I know that simple act of kindness would lead to finding a sister in you.</p>
+                <div class="memory-quote">You had said, "Don't worry, we're all nervous on the first day. Stick with me, I'll help you out!"</div>
+                <button class="memory-button" id="play-memory1">Relive This Moment</button>
+            </div>
+            
+            <div class="memory-card">
+                <h3 class="memory-title">Late Night Call Sessions</h3>
+                <p class="memory-date">March 2024</p>
+                <div class="memory-image">
+                    <img src="call.jpg" alt="Studying together at library">
+                </div>
+                <p class="memory-content">There’s something magical about those late-night calls between a brother and sister — when the world is quiet and it feels like time slows down just for them. It starts with a simple “Are you awake?” and unfolds into endless laughter, deep conversations, old memories, and unspoken comfort. Whether it's ranting about a rough day, sharing dreams, or just sitting in silence knowing the other is there, those late hours build a bond stronger than daylight ever could. In those quiet moments, they aren’t just siblings — they’re each other’s safe place.</p>
+                <div class="memory-quote">I still remember you saying, "If we're going down, we're going down together. But we're not going down!"</div>
+                <button class="memory-button" id="play-memory2">Relive This Moment</button>
+            </div>
+            
+            <div class="memory-card">
+                <h3 class="memory-title">First Video call</h3>
+                <p class="memory-date">April 2024</p>
+                <div class="memory-image">
+                    <img src="vc.jpeg" alt="Working on engineering project together">
+                </div>
+                <p class="memory-content">The first video call between a brother and sister is more than just a screen lighting up — it's a moment filled with smiles, surprise, and a warmth that even distance can’t dim. Seeing each other's faces after a long time, catching every small expression, the awkward camera angles, and uncontrollable laughter — it all makes the bond feel brand new and yet deeply familiar. That simple connection, where eyes meet through pixels and hearts meet through memories, becomes a treasured moment they’ll never forget — the start of many more screen-shared memories.</p>
+                <div class="memory-quote">That moment was priceless that was the best happiest moment</div>
+                <button class="memory-button" id="play-memory3">Relive This Moment</button>
+            </div>
+            
+            <div class="memory-card">
+                <h3 class="memory-title">Birthday Surprise</h3>
+                <p class="memory-date">Your Birthday Last Year</p>
+                <div class="memory-image">
+                    <img src="cake.jpeg" alt="Failed birthday surprise">
+                </div>
+                <p class="memory-content">Even though they couldn’t be together in person, the brother made sure her birthday began with a spark — calling her right at midnight, with eyes half-closed but heart fully present. On that video call, he sang the birthday song off-key, laughed at her sleepy smile, and made her feel celebrated across the distance. The next day, he surprised her with a thoughtful gift — not expensive, but wrapped in meaning, showing how well he knows her. It wasn’t about the perfect plan, but the perfect emotion.</p>
+                <div class="memory-quote">And that year, her birthday began with a screen , continued with the most unexpected lunch meal and ended with the call."</div>
+                <button class="memory-button" id="play-memory4">Relive This Moment</button>
+            </div>
+            
+            <div class="memory-card">
+                <h3 class="memory-title">NightTime walking while Ice-cream</h3>
+                <p class="memory-date">May 2022</p>
+                <div class="memory-image">
+                    <img src="ice-cream.jpg" alt="Supporting each other through tough times">
+                </div>
+                <p class="memory-content">There’s a quiet kind of joy in walking side by side at night, ice creams in hand, with nothing but the streetlights, soft breeze, and shared stories to keep you company. Those late-night strolls between a brother and sister turn ordinary roads into memory lanes — where laughter echoes louder, time feels slower, and the world feels just a little more peaceful. No need for fancy plans, just two hearts catching up in their own little world, one step and one scoop at a time.</p>
+                <div class="memory-quote">“That night, the ice cream melted slower than our conversation ever did.”</div>
+                <button class="memory-button" id="play-memory5">Relive This Moment</button>
+            </div>
+            
+            <div class="memory-card">
+                <h3 class="memory-title">Rakhi Tying for the first time</h3>
+                <p class="memory-date">December 2022</p>
+                <div class="memory-image">
+                    <img src="rakhi.webp" alt="Winning the engineering competition">
+                </div>
+                <p class="memory-content">That Raksha Bandhan was unlike any before — because it was the first time she tied a Rakhi on my wrist, not as a cousin or childhood sibling, but as a sister chosen by bond, not by blood. We met in college, two strangers who became everything to each other with time. When she gently tied that thread around my wrist, it wasn’t just a ritual — it was a silent promise that we had created a family of our own, built on trust, care, and countless shared memories.</p>
+                <div class="memory-quote">On stage you said, "This is my brother - not by blood, but by choice, by heart, and by countless all-nighters!"That moment — one thread, one smile, and a lifelong connection — still lives in my heart."</div>
+                <button class="memory-button" id="play-memory6">Relive This Moment</button>
+            </div>
+        </div>
+        
+        <div class="birthday-footer">
+            <h2 class="footer-title">Happy Birthday, My Sister!</h2>
+            <p class="footer-content">They say friends are the family we choose. I'm thankful every day that we chose each other. Here's to many more years of being siblings by heart. I promise next year's surprise won't involve cake flying at authority figures!</p>
+            <button class="surprise-button" id="final-surprise">Your Birthday Wish!</button>
+        </div>
+    </div>
+
+    <script>
+        // Create background shapes
+        const createBackgroundShapes = () => {
+            const shapes = ['circle', 'square', 'triangle', 'heart'];
+            const colors = ['#FF61D2', '#FE9090', '#FFB8D9', '#FF8FBA'];
+            const shapesContainer = document.querySelector('.background-shapes');
+            
+            for (let i = 0; i < 20; i++) {
+                const shape = document.createElement('div');
+                shape.classList.add('shape');
+                
+                // Random position, size, rotation and animation delay
+                const left = Math.random() * 100;
+                const top = Math.random() * 100;
+                const size = 20 + Math.random() * 60;
+                const delay = Math.random() * 10;
+                const duration = 10 + Math.random() * 20;
+                const shapeType = shapes[Math.floor(Math.random() * shapes.length)];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const opacity = 0.05 + Math.random() * 0.1;
+                
+                shape.style.left = `${left}%`;
+                shape.style.top = `${top}%`;
+                shape.style.width = `${size}px`;
+                shape.style.height = `${size}px`;
+                shape.style.animationDuration = `${duration}s`;
+                shape.style.animationDelay = `${delay}s`;
+                shape.style.opacity = opacity;
+                shape.style.backgroundColor = color;
+                
+                // Set shape based on type
+                if (shapeType === 'circle') {
+                    shape.style.borderRadius = '50%';
+                } else if (shapeType === 'square') {
+                    shape.style.borderRadius = '5px';
+                    shape.style.transform = `rotate(${Math.random() * 45}deg)`;
+                } else if (shapeType === 'triangle') {
+                    shape.style.width = '0';
+                    shape.style.height = '0';
+                    shape.style.backgroundColor = 'transparent';
+                    shape.style.borderLeft = `${size/2}px solid transparent`;
+                    shape.style.borderRight = `${size/2}px solid transparent`;
+                    shape.style.borderBottom = `${size}px solid ${color}`;
+                } else if (shapeType === 'heart') {
+                    shape.style.backgroundColor = 'transparent';
+                    shape.style.width = `${size}px`;
+                    shape.style.height = `${size}px`;
+                    shape.style.position = 'relative';
+                    shape.style.transform = `rotate(45deg)`;
+                    
+                    const before = document.createElement('div');
+                    before.style.content = '';
+                    before.style.position = 'absolute';
+                    before.style.top = '0';
+                    before.style.left = '0';
+                    before.style.width = '100%';
+                    before.style.height = '100%';
+                    before.style.backgroundColor = color;
+                    before.style.borderRadius = '50% 50% 0 0';
+                    
+                    const after = document.createElement('div');
+                    after.style.content = '';
+                    after.style.position = 'absolute';
+                    after.style.top = '0';
+                    after.style.right = '0';
+                    after.style.width = '100%';
+                    after.style.height = '100%';
+                    after.style.backgroundColor = color;
+                    after.style.borderRadius = '50% 0 0 50%';
+                    
+                    shape.appendChild(before);
+                    shape.appendChild(after);
+                }
+                
+                shapesContainer.appendChild(shape);
+            }
+        };
+
+        // Create confetti
+        const createConfetti = () => {
+            const confettiContainer = document.querySelector('.confetti-container');
+            const colors = ['#FF61D2', '#FE9090', '#FFB8D9', '#FF8FBA', '#FFC0EB', '#FFF', '#FFD700'];
+            
+            // Clear existing confetti
+            confettiContainer.innerHTML = '';
+            
+            for (let i = 0; i < 150; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                
+                // Random properties
+                const left = Math.random() * 100;
+                const size = Math.random() * 8 + 6;
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                const shape = Math.random() > 0.5 ? 'circle' : 'rect';
+                const delay = Math.random() * 3;
+                const duration = Math.random() * 3 + 3;
+                const rotationSpeed = Math.random() * 360;
+                const initialRotation = Math.random() * 360;
+                
+                confetti.style.left = `${left}%`;
+                confetti.style.width = `${size}px`;
+                confetti.style.height = `${size}px`;
+                confetti.style.opacity = `${0.7 + Math.random() * 0.3}`;
+                
+                if (shape === 'circle') {
+                    confetti.style.borderRadius = '50%';
+                    confetti.style.background = color;
+                } else {
+                    // Make some heart-shaped confetti
+                    if (Math.random() > 0.7) {
+                        confetti.style.background = 'transparent';
+                        confetti.style.width = `${size + 3}px`;
+                        confetti.style.height = `${size + 3}px`;
+                        confetti.style.transform = 'rotate(45deg)';
+                        confetti.style.position = 'relative';
+                        confetti.style.overflow = 'hidden';
+                        
+                        const before = document.createElement('div');
+                        before.style.content = '';
+                        before.style.position = 'absolute';
+                        before.style.width = '100%';
+                        before.style.height = '100%';
+                        before.style.background = color;
+                        before.style.borderRadius = '50%';
+                        before.style.top = '-50%';
+                        before.style.left = '0';
+                        
+                        const after = document.createElement('div');
+                        after.style.content = '';
+                        after.style.position = 'absolute';
+                        after.style.width = '100%';
+                        after.style.height = '100%';
+                        after.style.background = color;
+                        after.style.borderRadius = '50%';
+                        after.style.top = '0';
+                        after.style.left = '-50%';
+                        
+                        confetti.appendChild(before);
+                        confetti.appendChild(after);
+                    } else {
+                        confetti.style.background = color;
+                    }
+                }
+                
+                // Add animation for falling confetti
+                confetti.animate([
+                    { transform: `translateY(0) rotate(${initialRotation}deg)`, opacity: 1 },
+                    { transform: `translateY(100vh) rotate(${initialRotation + rotationSpeed}deg)`, opacity: 0 }
+                ], {
+                    duration: duration * 1000,
+                    delay: delay * 1000,
+                    fill: 'forwards',
+                    easing: 'cubic-bezier(0.21, 0.61, 0.35, 1)'
+                });
+                
+                confettiContainer.appendChild(confetti);
+            }
+        };
+
+        // Create floating hearts
+        const createHearts = () => {
+            const heartContainer = document.querySelector('.heart-container');
+            const heartColors = ['#FF61D2', '#FE9090', '#FF8FBA', '#FFD1E8'];
+            
+            // Clear existing hearts
+            heartContainer.innerHTML = '';
+            heartContainer.classList.add('show');
+            
+            for (let i = 0; i < 30; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                
+                // Random properties
+                const left = Math.random() * 100;
+                const size = 20 + Math.random() * 40;
+                const delay = Math.random() * 5;
+                const duration = 7 + Math.random() * 8;
+                const color = heartColors[Math.floor(Math.random() * heartColors.length)];
+                
+                heart.style.left = `${left}%`;
+                heart.style.width = `${size}px`;
+                heart.style.height = `${size}px`;
+                heart.style.animationDuration = `${duration}s`;
+                heart.style.animationDelay = `${delay}s`;
+                
+                // Create SVG heart
+                heart.innerHTML = `<svg viewBox="0 0 24 24" fill="${color}" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>`;
+                
+                heartContainer.appendChild(heart);
+            }
+            
+            // Hide hearts after some time
+            setTimeout(() => {
+                heartContainer.classList.remove('show');
+            }, 15000);
+        };
+
+        // Create particle effects when buttons are clicked
+        const createParticles = (event, color = '#FF61D2') => {
+            const button = event.target;
+            const rect = button.getBoundingClientRect();
+            
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                
+                particle.style.position = 'fixed';
+                particle.style.width = '8px';
+                particle.style.height = '8px';
+                particle.style.borderRadius = '50%';
+                particle.style.backgroundColor = color;
+                particle.style.left = `${rect.left + rect.width / 2}px`;
+                particle.style.top = `${rect.top + rect.height / 2}px`;
+                particle.style.pointerEvents = 'none';
+                particle.style.zIndex = '100';
+                
+                document.body.appendChild(particle);
+                
+                // Random direction and speed
+                const angle = Math.random() * Math.PI * 2;
+                const speed = 2 + Math.random() * 4;
+                const distance = 50 + Math.random() * 100;
+                const lifetime = 500 + Math.random() * 1000;
+                
+                let xSpeed = Math.cos(angle) * speed;
+                let ySpeed = Math.sin(angle) * speed;
+                
+                const startTime = Date.now();
+                
+                const animate = () => {
+                    const elapsed = Date.now() - startTime;
+                    
+                    if (elapsed < lifetime) {
+                        const progress = elapsed / lifetime;
+                        const x = parseFloat(particle.style.left) + xSpeed;
+                        const y = parseFloat(particle.style.top) + ySpeed;
+                        const opacity = 1 - progress;
+                        const scale = 1 - progress * 0.5;
+                        
+                        particle.style.left = `${x}px`;
+                        particle.style.top = `${y}px`;
+                        particle.style.opacity = opacity;
+                        particle.style.transform = `scale(${scale})`;
+                        
+                        // Add gravity and friction
+                        xSpeed *= 0.99;
+                        ySpeed *= 0.99;
+                        ySpeed += 0.1;
+                        
+                        requestAnimationFrame(animate);
+                    } else {
+                        particle.remove();
+                    }
+                };
+                
+                requestAnimationFrame(animate);
+            }
+        };
+
+        // Final surprise function - Birthday message with special effects
+        const launchFinalSurprise = () => {
+            // Create modal for birthday message
+            const modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100%';
+            modal.style.height = '100%';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+            modal.style.display = 'flex';
+            modal.style.justifyContent = 'center';
+            modal.style.alignItems = 'center';
+            modal.style.zIndex = '1000';
+            modal.style.opacity = '0';
+            modal.style.transition = 'opacity 0.5s ease';
+            
+            const messageBox = document.createElement('div');
+            messageBox.style.backgroundColor = '#fff';
+            messageBox.style.borderRadius = '20px';
+            messageBox.style.padding = '40px';
+            messageBox.style.maxWidth = '80%';
+            messageBox.style.textAlign = 'center';
+            messageBox.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.3)';
+            messageBox.style.transform = 'scale(0.8)';
+            messageBox.style.transition = 'transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+            messageBox.style.position = 'relative';
+            messageBox.style.overflow = 'hidden';
+            
+            // Add gradient border
+            messageBox.style.border = '4px solid transparent';
+            messageBox.style.backgroundClip = 'padding-box';
+            messageBox.style.background = 'linear-gradient(white, white) padding-box, linear-gradient(135deg, #FF61D2, #FE9090) border-box';
+            
+            const title = document.createElement('h2');
+            title.textContent = 'My Birthday Wish For You';
+            title.style.color = '#FF61D2';
+            title.style.fontFamily = "'Pacifico', cursive";
+            title.style.fontSize = '2.5rem';
+            title.style.marginBottom = '20px';
+            
+            const message = document.createElement('p');
+            message.innerHTML = `Chinnu, my sister by heart,<br><br>
+                When I came to engineering college, I was looking for an education.<br>
+                Instead, I found a sister, a best friend, and a partner in crime.<br><br>
+                My wish for you on your birthday is that you always see yourself<br>
+                through my eyes - brilliant, brave, and beautiful inside and out.<br><br>
+                Here's to many more years of friendship, late-night study sessions,<br>
+                ridiculous adventures, and being each other's chosen family.<br><br>
+                Happy Birthday, Sister!`;
+            message.style.fontSize = '1.2rem';
+            message.style.lineHeight = '1.8';
+            message.style.color = '#555';
+            message.style.marginBottom = '30px';
+            
+            const closeButton = document.createElement('button');
+            closeButton.textContent = 'Make My Birthday Wish Come True! ✨';
+            closeButton.style.padding = '12px 25px';
+            closeButton.style.background = 'linear-gradient(135deg, #FF61D2 0%, #FE9090 100%)';
+            closeButton.style.color = '#fff';
+            closeButton.style.border = 'none';
+            closeButton.style.borderRadius = '50px';
+            closeButton.style.fontSize = '1.1rem';
+            closeButton.style.fontWeight = '600';
+            closeButton.style.cursor = 'pointer';
+            closeButton.style.boxShadow = '0 5px 15px rgba(254, 97, 210, 0.3)';
+            
+            messageBox.appendChild(title);
+            messageBox.appendChild(message);
+            messageBox.appendChild(closeButton);
+            modal.appendChild(messageBox);
+            document.body.appendChild(modal);
+            
+            // Show modal with animation
+            setTimeout(() => {
+                modal.style.opacity = '1';
+                messageBox.style.transform = 'scale(1)';
+            }, 100);
+            
+            // Add glitter effect in background
+            const addGlitter = () => {
+                const glitter = document.createElement('div');
+                glitter.style.position = 'absolute';
+                glitter.style.width = '10px';
+                glitter.style.height = '10px';
+                glitter.style.borderRadius = '50%';
+                glitter.style.background = '#FFD700';
+                glitter.style.boxShadow = '0 0 10px 2px rgba(255, 215, 0, 0.8)';
+                
+                // Random position
+                const top = Math.random() * 100;
+                const left = Math.random() * 100;
+                
+                glitter.style.top = `${top}%`;
+                glitter.style.left = `${left}%`;
+                
+                messageBox.appendChild(glitter);
+                
+                // Animation
+                glitter.animate([
+                    { opacity: 0, transform: 'scale(0)' },
+                    { opacity: 1, transform: 'scale(1)' },
+                    { opacity: 0, transform: 'scale(0)' }
+                ], {
+                    duration: 1500,
+                    fill: 'forwards'
+                }).onfinish = () => {
+                    glitter.remove();
+                };
+            };
+            
+            // Add glitter at intervals
+            const glitterInterval = setInterval(addGlitter, 300);
+            
+            // Close modal and trigger massive celebration
+            closeButton.addEventListener('click', () => {
+                clearInterval(glitterInterval);
+                modal.style.opacity = '0';
+                messageBox.style.transform = 'scale(0.8)';
+                
+                setTimeout(() => {
+                    modal.remove();
+                    // Create massive celebration
+                    createConfetti();
+                    createHearts();
+                    playBirthdaySong();
+                }, 500);
+            });
+        };
+
+        // Play birthday song (just a visual animation since we can't actually play audio)
+        const playBirthdaySong = () => {
+            // Create music note animation
+            const container = document.querySelector('.container');
+            const notes = ['♪', '♫', '♩', '♬', '♭', '♮'];
+            const colors = ['#FF61D2', '#FE9090', '#FFB8D9', '#FF8FBA'];
+            
+            for (let i = 0; i < 40; i++) {
+                setTimeout(() => {
+                    const note = document.createElement('div');
+                    note.textContent = notes[Math.floor(Math.random() * notes.length)];
+                    note.style.position = 'fixed';
+                    note.style.fontSize = `${24 + Math.random() * 20}px`;
+                    note.style.color = colors[Math.floor(Math.random() * colors.length)];
+                    note.style.left = `${10 + Math.random() * 80}%`;
+                    note.style.top = '100%';
+                    note.style.opacity = '0.9';
+                    note.style.zIndex = '99';
+                    note.style.textShadow = '0 0 5px rgba(255,255,255,0.5)';
+                    document.body.appendChild(note);
+                    
+                    note.animate([
+                        { transform: 'translateY(0) rotate(0deg)', opacity: 0.9 },
+                        { transform: `translateY(-${window.innerHeight}px) rotate(${Math.random() * 360}deg)`, opacity: 0 }
+                    ], {
+                        duration: 3000 + Math.random() * 3000,
+                        easing: 'cubic-bezier(0.21, 0.61, 0.35, 1)',
+                        fill: 'forwards'
+                    }).onfinish = () => note.remove();
+                }, i * 200);
+            }
+            
+            // Create a "Happy Birthday" banner that flies across screen
+            setTimeout(() => {
+                const banner = document.createElement('div');
+                banner.textContent = "Happy Birthday Chinnu!";
+                banner.style.position = 'fixed';
+                banner.style.top = '50%';
+                banner.style.left = '-100%';
+                banner.style.transform = 'translateY(-50%)';
+                banner.style.padding = '15px 30px';
+                banner.style.backgroundColor = '#FF61D2';
+                banner.style.color = 'white';
+                banner.style.fontSize = '2rem';
+                banner.style.fontFamily = "'Pacifico', cursive";
+                banner.style.borderRadius = '10px';
+                banner.style.boxShadow = '0 10px 20px rgba(0,0,0,0.3)';
+                banner.style.zIndex = '100';
+                document.body.appendChild(banner);
+                
+                banner.animate([
+                    { left: '-100%' },
+                    { left: '50%', transform: 'translate(-50%, -50%)' }
+                ], {
+                    duration: 1000,
+                    fill: 'forwards',
+                    easing: 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
+                });
+                
+                setTimeout(() => {
+                    banner.animate([
+                        { transform: 'translate(-50%, -50%) scale(1)', opacity: 1 },
+                        { transform: 'translate(-50%, -50%) scale(1.2)', opacity: 0 }
+                    ], {
+                        duration: 1000,
+                        fill: 'forwards'
+                    }).onfinish = () => banner.remove();
+                }, 3000);
+            }, 1000);
+        };
+
+        // Check if memory card is in viewport to trigger animation
+        const isInViewport = (element) => {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
+                rect.bottom >= 0
+            );
+        };
+
+        // Animate memory cards when they come into view
+        const animateMemoryCards = () => {
+            const memoryCards = document.querySelectorAll('.memory-card');
+            
+            memoryCards.forEach(card => {
+                if (isInViewport(card)) {
+                    card.classList.add('visible');
+                }
+            });
+        };
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            createBackgroundShapes();
+            
+            // Initial check for visible memory cards
+            animateMemoryCards();
+            
+            // Check on scroll
+            window.addEventListener('scroll', animateMemoryCards);
+            
+            // Setup confetti button
+            document.getElementById('launch-confetti').addEventListener('click', function(e) {
+                createConfetti();
+                createParticles(e, '#FF61D2');
+            });
+            
+            // Setup hearts button
+            document.getElementById('show-hearts').addEventListener('click', function(e) {
+                createHearts();
+                createParticles(e, '#FE9090');
+            });
+            
+            // Setup memory buttons
+            document.querySelectorAll('.memory-button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    // Get parent memory card
+                    const card = this.closest('.memory-card');
+                    
+                    // Create particle effects
+                    createParticles(e);
+                    
+                    // Create a brief animation for the memory
+                    card.style.transition = 'transform 0.5s ease, box-shadow 0.5s ease';
+                    card.style.transform = 'scale(1.05)';
+                    card.style.boxShadow = '0 15px 35px rgba(0, 0, 0, 0.2)';
+                    
+                    setTimeout(() => {
+                        card.style.transform = 'scale(1)';
+                        card.style.boxShadow = '0 5px 25px rgba(0, 0, 0, 0.1)';
+                    }, 500);
+                    
+                    // Animate the image
+                    const image = card.querySelector('.memory-image img');
+                    image.style.transition = 'transform 3s ease';
+                    image.style.transform = 'scale(1.15)';
+                    
+                    // Add sparkle effect around the image
+                    const addSparkles = (count = 5) => {
+                        const imageRect = image.getBoundingClientRect();
+                        
+                        for (let i = 0; i < count; i++) {
+                            const sparkle = document.createElement('div');
+                            sparkle.style.position = 'absolute';
+                            sparkle.style.width = '10px';
+                            sparkle.style.height = '10px';
+                            sparkle.style.background = '#FFD700';
+                            sparkle.style.borderRadius = '50%';
+                            sparkle.style.boxShadow = '0 0 10px #FFD700';
+                            sparkle.style.zIndex = '2';
+                            
+                            // Position around image
+                            const angle = Math.random() * Math.PI * 2;
+                            const radius = 10 + Math.random() * 50;
+                            const centerX = imageRect.width / 2;
+                            const centerY = imageRect.height / 2;
+                            
+                            const x = centerX + Math.cos(angle) * radius;
+                            const y = centerY + Math.sin(angle) * radius;
+                            
+                            sparkle.style.left = `${x}px`;
+                            sparkle.style.top = `${y}px`;
+                            
+                            const imageContainer = card.querySelector('.memory-image');
+                            imageContainer.appendChild(sparkle);
+                            
+                            // Animation
+                            sparkle.animate([
+                                { opacity: 0, transform: 'scale(0)' },
+                                { opacity: 1, transform: 'scale(1)' },
+                                { opacity: 0, transform: 'scale(0)' }
+                            ], {
+                                duration: 1000,
+                                fill: 'forwards'
+                            }).onfinish = () => sparkle.remove();
+                        }
+                    };
+                    
+                    // Add sparkles multiple times
+                    for (let i = 0; i < 5; i++) {
+                        setTimeout(() => addSparkles(3), i * 200);
+                    }
+                    
+                    setTimeout(() => {
+                        image.style.transform = 'scale(1)';
+                    }, 3000);
+                });
+            });
+            
+            // Setup final surprise button
+            document.getElementById('final-surprise').addEventListener('click', function(e) {
+                createParticles(e);
+                launchFinalSurprise();
+            });
+        });
+    </script>
+</body>
+</html>

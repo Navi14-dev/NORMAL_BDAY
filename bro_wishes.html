@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brother's Wishes for Chinnu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600;700&display=swap');
+
+        body {
+            background: linear-gradient(135deg, #43c6ac 0%, #191654 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #fff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #fff;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .nav-button {
+            background: rgba(255, 255, 255, 0.7);
+            border: none;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            color: #43c6ac;
+            font-weight: 600;
+        }
+
+        .nav-button:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: 0.5s;
+        }
+
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+            background: #fff;
+        }
+
+        .nav-button:hover:before {
+            left: 100%;
+        }
+
+        .home-button {
+            background: rgba(255, 255, 255, 0.3);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .home-button:hover {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .wishes-container {
+            position: relative;
+            margin: 30px auto;
+            max-width: 800px;
+            perspective: 1000px;
+            height: 450px;
+        }
+
+        .wish-card {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+            transition: all 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .wish-card.active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+
+        .wish-text {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 20px;
+            font-family: 'Dancing Script', cursive;
+            line-height: 1.6;
+        }
+
+        .wish-memory {
+            font-size: 1.1rem;
+            color: #555;
+            font-style: italic;
+            margin-bottom: 30px;
+        }
+
+        .photo-container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .wishes-nav {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .wish-btn {
+            background: #43c6ac;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .wish-btn:hover {
+            background: #38a892;
+            transform: translateY(-3px);
+        }
+
+        /* Bubbles animation */
+        .bubbles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bubble {
+            position: absolute;
+            border-radius: 50%;
+            animation: rise 10s linear infinite;
+            bottom: -50px;
+            opacity: 0.3;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.4) 70%, rgba(255, 255, 255, 0) 100%);
+        }
+
+        @keyframes rise {
+            0% {
+                transform: translateY(0) scale(0.5);
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .wish-text {
+                font-size: 1.3rem;
+            }
+            
+            .wishes-container {
+                height: 450px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bubbles"></div>
+    
+    <div class="container">
+        <header>
+            <h1>A Brother's Wishes</h1>
+            <p class="subtitle">Special birthday messages for my dear sister, Chinnu</p>
+            <button class="home-button" onclick="location.href='index.html'">Back to Home</button>
+        </header>
+        
+        <div class="wishes-container">
+            <div class="wish-card" id="wish1">
+                <div class="photo-container">
+                    <img src="wish1.jpg" alt="Chinnu's Photo">
+                </div>
+                <p class="wish-text">"To my wonderful Chinnu, proof that sisters aren't only made by blood. Since that first day we met at GIET Engineering College, you've been family to me. Happy Birthday!"</p>
+                <p class="wish-memory">Remember those late nights in the college library when we were cramming for exams? You brought snacks and encouragement when I needed it most.</p>
+            </div>
+            
+            <div class="wish-card" id="wish2">
+                <div class="photo-container">
+                    <img src="wish2.jpg" alt="Chinnu's Photo">
+                </div>
+                <p class="wish-text">"Chinnu, fate made us classmates at GIET, but our hearts made us siblings. You're the sister I chose, and I'm grateful for you every day. May this birthday bring you endless joy!"</p>
+                <p class="wish-memory">Our engineering projects would've been impossible without your brilliance and patience. You turned stressful deadlines into memories I cherish.</p>
+            </div>
+            
+            <div class="wish-card" id="wish3">
+                <div class="photo-container">
+                    <img src="wish3.jpg" alt="Chinnu's Photo">
+                </div>
+                <p class="wish-text">"From strangers at GIET orientation to family for life. That's our story, Chinnu. You've shown me that sisters can be found in the most unexpected places. Happy Birthday!"</p>
+                <p class="wish-memory">I'm so proud of how we've supported each other since college days. From coding challenges to life challenges, we've faced them all together.</p>
+            </div>
+            
+            <div class="wish-card" id="wish4">
+                <div class="photo-container">
+                    <img src="wish4.jpg" alt="Chinnu's Photo">
+                </div>
+                <p class="wish-text">"Blood doesn't make family, love does. And ever since GIET Engineering College, you've been my sister in every way that matters. Celebrating you today and always!"</p>
+                <p class="wish-memory">Those college canteen lunches where we shared dreams and plans for the future - who knew we'd actually be living those dreams together years later?</p>
+            </div>
+        </div>
+        
+        <div class="wishes-nav">
+            <button class="wish-btn" id="prev-btn">Previous Wish</button>
+            <button class="wish-btn" id="next-btn">Next Wish</button>
+        </div>
+    </div>
+
+    <script>
+        // Create bubbles
+        const createBubbles = () => {
+            const bubblesContainer = document.querySelector('.bubbles');
+            
+            for (let i = 0; i < 50; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                
+                // Random position, size, and animation delay
+                const left = Math.random() * 100;
+                const size = 20 + Math.random() * 60;
+                const delay = Math.random() * 10;
+                const duration = 10 + Math.random() * 20;
+                
+                bubble.style.left = `${left}%`;
+                bubble.style.width = `${size}px`;
+                bubble.style.height = `${size}px`;
+                bubble.style.animationDelay = `${delay}s`;
+                bubble.style.animationDuration = `${duration}s`;
+                
+                bubblesContainer.appendChild(bubble);
+            }
+        };
+
+        // Wish card navigation
+        let currentWish = 1;
+        const totalWishes = 4;
+
+        const showWish = (index) => {
+            // Hide all wishes
+            document.querySelectorAll('.wish-card').forEach(card => {
+                card.classList.remove('active');
+            });
+            
+            // Show the selected wish
+            document.getElementById(`wish${index}`).classList.add('active');
+            
+            // Add animation effect
+            const activeCard = document.getElementById(`wish${index}`);
+            activeCard.style.animation = 'none';
+            void activeCard.offsetWidth; // Trigger reflow
+            activeCard.style.animation = 'fadeInScale 0.5s ease forwards';
+        };
+
+        document.getElementById('prev-btn').addEventListener('click', () => {
+            currentWish = (currentWish - 1 + totalWishes) % totalWishes || totalWishes;
+            showWish(currentWish);
+            addParticleEffect(event);
+        });
+
+        document.getElementById('next-btn').addEventListener('click', (event) => {
+            currentWish = (currentWish % totalWishes) + 1;
+            showWish(currentWish);
+            addParticleEffect(event);
+        });
+
+        // Add particle effect when buttons are clicked
+        const addParticleEffect = (event) => {
+            const button = event.target;
+            const rect = button.getBoundingClientRect();
+            const x = rect.left + rect.width / 2;
+            const y = rect.top + rect.height / 2;
+            
+            for (let i = 0; i < 20; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'fixed';
+                particle.style.width = '8px';
+                particle.style.height = '8px';
+                particle.style.borderRadius = '50%';
+                particle.style.background = getComputedStyle(button).backgroundColor;
+                particle.style.left = `${x}px`;
+                particle.style.top = `${y}px`;
+                
+                const angle = Math.random() * Math.PI * 2;
+                const speed = 3 + Math.random() * 5;
+                const distance = 30 + Math.random() * 60;
+                const lifetime = 500 + Math.random() * 1000;
+                
+                let xSpeed = Math.cos(angle) * speed;
+                let ySpeed = Math.sin(angle) * speed;
+                
+                document.body.appendChild(particle);
+                
+                const startTime = Date.now();
+                
+                const animate = () => {
+                    const elapsed = Date.now() - startTime;
+                    if (elapsed < lifetime) {
+                        const progress = elapsed / lifetime;
+                        const x = parseFloat(particle.style.left) + xSpeed;
+                        const y = parseFloat(particle.style.top) + ySpeed;
+                        const opacity = 1 - progress;
+                        
+                        particle.style.left = `${x}px`;
+                        particle.style.top = `${y}px`;
+                        particle.style.opacity = opacity;
+                        
+                        xSpeed *= 0.99;
+                        ySpeed *= 0.99;
+                        ySpeed += 0.1; // Gravity
+                        
+                        requestAnimationFrame(animate);
+                    } else {
+                        particle.remove();
+                    }
+                };
+                
+                requestAnimationFrame(animate);
+            }
+        };
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            createBubbles();
+            showWish(currentWish);
+            
+            // Add event listeners to nav buttons
+            document.querySelectorAll('.nav-button').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    addParticleEffect(e);
+                });
+            });
+            
+            document.querySelector('.home-button').addEventListener('click', function(e) {
+                addParticleEffect(e);
+            });
+        });
+    </script>
+</body>
+</html>
